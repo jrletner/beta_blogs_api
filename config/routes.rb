@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
 # Beta Blog API Routes
 #
-resources :blogs, only: [ :index, :show, :create, :update, :destroy ]
+resources :blogs
+resources :users
+resources :categories
 end
