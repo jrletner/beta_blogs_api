@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 # root "posts#index"
 
 # Beta Blog API Routes
-#
 resources :blogs
 resources :users
 resources :categories
