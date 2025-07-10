@@ -2,8 +2,8 @@ require 'faker'
 
 Blog.destroy_all
 Category.destroy_all
-User.destroy_all
 Profile.destroy_all
+User.destroy_all
 
 
 # seed categories
