@@ -1,11 +1,5 @@
 require 'faker'
 
-Blog.destroy_all
-Category.destroy_all
-Profile.destroy_all
-User.destroy_all
-
-
 # seed categories
 categories = []
 5.times do
