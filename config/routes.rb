@@ -10,7 +10,4 @@ Rails.application.routes.draw do
 
 # Beta Blog API Routes
 resources :blogs
-resources :users
-resources :categories
-resources :profiles
 end
