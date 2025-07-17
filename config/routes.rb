@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 # Beta Blog API Routes
 resources :blogs
-resources :users
+resources :users #index, show, update, destroy, create
 post "/login", to: "sessions#create"
+get "/users/blogs/:id", to: "users#getBlogs"
 end
