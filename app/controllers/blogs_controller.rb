@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_request, except: [ :show ]
+  # before_action :authenticate_request, except: [ :show ]
   def index
     blogs = Blog.all
 
