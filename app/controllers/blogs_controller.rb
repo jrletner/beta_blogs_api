@@ -2,14 +2,14 @@ class BlogsController < ApplicationController
   # before_action :authenticate_request, except: [ :show ]
   def index
     blogs = Blog.all
-
-    render json: BlogBlueprint.render(blogs), status: 200
+    payload = BlogBlueprint.render_as_hash(blogs)
+    render json: { payload: payload, success: true }, status: :ok
   end
 
   def show
     blog = Blog.find(params[:id])
-
-    render json: BlogBlueprint.render(blog, view: :normal), status: 200
+    payload = BlogBlueprint.render_as_hash(blog, view: :normal)
+    render json: { payload: payload, success: true }, status: :ok
   end
 
   def create

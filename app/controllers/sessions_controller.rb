@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       token = jwt_encode(user_id: user.id)
       render json: { token: token }, status: :ok
     else
-      render json: { error: "Unauthorized" }, status: :Unauthorized
+      render json: { error: "Unauthorized" }, status: :unauthorized
     end
   end
 
