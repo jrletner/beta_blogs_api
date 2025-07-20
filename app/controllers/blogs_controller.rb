@@ -1,35 +1,30 @@
 class BlogsController < ApplicationController
-  # before_action :authenticate_request, except: [ :show ]
+  before_action :authenticate_request, except: [ :show ]
   def index
     blogs = Blog.all
-    payload = BlogBlueprint.render_as_hash(blogs)
-    render json: { payload: payload, success: true }, status: :ok
+    render json: BlogBlueprint.render_as_hash(blogs), status: :ok
   end
 
   def show
     blog = Blog.find(params[:id])
-    payload = BlogBlueprint.render_as_hash(blog, view: :normal)
-    render json: { payload: payload, success: true }, status: :ok
+    render json: BlogBlueprint.render_as_hash(blog, view: :normal), status: :ok
   end
 
   def create
     blog = Blog.create(blog_params)
-    payload = BlogBlueprint.render_as_hash(blog, view: :normal)
-    render json: { payload: payload, success: true }, status: :ok
+    render json: BlogBlueprint.render_as_hash(blog, view: :normal), status: :ok
   end
 
   def update
     blog = Blog.find(params[:id])
     blog.update(blog_params)
-    payload = BlogBlueprint.render_as_hash(blog, view: :normal)
-    render json: { payload: payload, success: true }, status: :ok
+    render json: BlogBlueprint.render_as_hash(blog, view: :normal), status: :ok
   end
 
   def destroy
     blog = Blog.find(params[:id])
     blog.destroy
-    payload = BlogBlueprint.render_as_hash(blog, view: :normal)
-    render json: { payload: payload, success: true }, status: :ok
+    render json: BlogBlueprint.render_as_hash(blog, view: :normal), status: :ok
   end
 
 private
