@@ -14,21 +14,22 @@ class BlogsController < ApplicationController
 
   def create
     blog = Blog.create(blog_params)
-
-    render json: blog
+    payload = BlogBlueprint.render_as_hash(blog, view: :normal)
+    render json: { payload: payload, success: true }, status: :ok
   end
 
   def update
     blog = Blog.find(params[:id])
     blog.update(blog_params)
-    render json: blog
+    payload = BlogBlueprint.render_as_hash(blog, view: :normal)
+    render json: { payload: payload, success: true }, status: :ok
   end
 
   def destroy
     blog = Blog.find(params[:id])
     blog.destroy
-
-    render json: blog
+    payload = BlogBlueprint.render_as_hash(blog, view: :normal)
+    render json: { payload: payload, success: true }, status: :ok
   end
 
 private
